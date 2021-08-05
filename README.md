@@ -18,22 +18,32 @@ I'm using FiraCode because it comes with ligatures.
 Run the following commands.
 
 ```zsh
-chsh -s /bin/zsh q
+sudo apt update
+sudo apt upgrade
+sudo apt install zsh unzip
+  
+chsh -s /bin/zsh [user]
 
-cd ~
-git clone https://github.com/roflolilolmao/.config.git --recursive
+# Set up your SSH stuff if necessary
+# https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
+
+git clone git@github.com:[github_username]/.config --recursive
 cd .config
-git remote set-url origin git@github.com:roflolilolmao/.config
 
+# Zsh only looks for `~/.zshenv`
 ln -s $(pwd)/zsh/.zshenv ~/.zshenv
 
-# TODO: install neovim and python-pynvim
+curl -L -o nvim.appimage https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage
+chmod u+x nvim.appimage
+mkdir -p ~/.local/bin/
+mv nvim.appimage ~/.local/bin/nvim
 
-# Clipboard provider for nvim: https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
+# Clipboard provider for WSL, used by nvim
+# https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
 curl -sLo/tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
 unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe
 chmod +x /tmp/win32yank.exe
-mv /tmp/win32yank.exe ~/.local/bin
+mv /tmp/win32yank.exe ~/.local/bin/win32yank.exe
 ```
 
 ### Changing the repository's location
