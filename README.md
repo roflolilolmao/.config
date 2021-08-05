@@ -7,13 +7,16 @@ This repository contains a minimal configuration to use neovim and zsh on WSL.
 ### Fonts
 
 Nerd fonts are fonts that contain thousands of useful glyphs. Using one will
-make everything prettier.
+make everything prettier. I highly recommend using one and this repository
+contains configuration that will probably break without a NF.
+If you don't know which one to use, FiraCode is a good start.
 
-I'm using FiraCode because it comes with ligatures.
-
-[Nerd fonts](https://www.nerdfonts.com/font-downloads).
+[Download a Nerd Font](https://www.nerdfonts.com/font-downloads).
 
 ### WSL
+
+By default, this configuration should be cloned in `~/.config`. [This can be
+changed](#changing-the-repository-s-location).
 
 Run the following commands.
 
@@ -55,10 +58,6 @@ this line:
 ```zsh
 export XDG_CONFIG_HOME="$HOME/.config"
 ```
-
-Now restart the shell and everything should be set.
-
-## Configuration
 
 ### SSH
 
